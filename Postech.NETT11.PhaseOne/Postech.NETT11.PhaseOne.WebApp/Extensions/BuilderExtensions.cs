@@ -1,0 +1,84 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
+using Postech.NETT11.PhaseOne.Domain.AccessAndAuthorization;
+using Postech.NETT11.PhaseOne.Domain.AccessAndAuthorization.Services;
+using Postech.NETT11.PhaseOne.Domain.Repositories;
+using Postech.NETT11.PhaseOne.Infrastructure;
+using Postech.NETT11.PhaseOne.Infrastructure.Repository;
+using Postech.NETT11.PhaseOne.WebApp.Services.Auth;
+
+namespace Postech.NETT11.PhaseOne.WebApp.Extensions;
+
+public static class BuilderExtensions
+{
+    public static WebApplicationBuilder RegisterAuth(this WebApplicationBuilder builder)
+    {
+        var key = builder.Configuration["Jwt:Key"]??throw new ArgumentException("Missing configuration key");
+        builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key))
+                };
+            });
+        
+        builder.Services.AddAuthorization(options =>
+        {
+            options.AddPolicy("Admin", policy => policy.RequireRole("Admin"));
+        });
+
+        return builder;
+    }
+    
+    public static WebApplicationBuilder RegisterOpenApi(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddOpenApi(options =>
+        {
+            options.OpenApiVersion = OpenApiSpecVersion.OpenApi3_0;
+        });
+        return builder;
+    }
+    
+    public static WebApplicationBuilder RegisterRepositories(this WebApplicationBuilder builder)
+    {
+        // Register your services here
+        builder.Services.AddScoped<IUserRepository, UserRepository>();
+        return builder;
+    }
+    
+    public static WebApplicationBuilder RegisterServices(this WebApplicationBuilder builder)
+    {
+        builder.Services.AddTransient<IJwtService, JwtService>();
+        
+        builder.Services
+            .AddEndpointsApiExplorer();
+        
+        return builder;
+    }
+
+    public static WebApplicationBuilder RegisterDbContext(this WebApplicationBuilder builder,IConfiguration configuration)
+    {
+        builder.Services.AddDbContext<AppDbContext>(options =>
+        {
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            options.UseSqlServer(connectionString);
+        });
+        return builder;
+    }
+}
