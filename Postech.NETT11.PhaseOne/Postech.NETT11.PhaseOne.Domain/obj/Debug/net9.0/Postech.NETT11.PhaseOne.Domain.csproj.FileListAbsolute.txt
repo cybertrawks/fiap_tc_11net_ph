@@ -1,0 +1,13 @@
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/bin/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.deps.json
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/bin/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.dll
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/bin/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.pdb
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/obj/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.csproj.AssemblyReference.cache
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/obj/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/obj/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.AssemblyInfoInputs.cache
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/obj/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.AssemblyInfo.cs
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/obj/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.csproj.CoreCompileInputs.cache
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/obj/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.sourcelink.json
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/obj/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.dll
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/obj/Debug/net9.0/refint/Postech.NETT11.PhaseOne.Domain.dll
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/obj/Debug/net9.0/Postech.NETT11.PhaseOne.Domain.pdb
+/data/02-project/05-fiap_tc_11net_ph/Postech.NETT11.PhaseOne/Postech.NETT11.PhaseOne.Domain/obj/Debug/net9.0/ref/Postech.NETT11.PhaseOne.Domain.dll
